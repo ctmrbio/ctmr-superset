@@ -13,16 +13,4 @@ docker run \
   --name ${container_name} \
   ${image_id}
 
-docker exec -it ${container_name} superset \
-  fab create-admin \
-  --username admin \
-  --firstname Superset \
-  --lastname Admin \
-  --email superset@c1-ctmr-orch.ki.se \
-  --password admin
-
-docker exec -it ${container_name} superset db upgrade
-
-#docker exec -it ${container_name} superset load_example
-
-docker exec -it ${container_name} superset init
+./initialize_superset.sh ${container_name}
