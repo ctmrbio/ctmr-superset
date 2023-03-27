@@ -7,6 +7,7 @@ LABEL org.opencontainers.image.licenses=Apache-2.0
 # Switching to root to install the required packages
 USER root
 RUN pip install mysqlclient psycopg2-binary sqlalchemy
+RUN chmod 0777 /tmp
 
 # Switching back to using the `superset` user
 USER superset
